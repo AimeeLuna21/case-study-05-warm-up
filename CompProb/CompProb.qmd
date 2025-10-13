@@ -1,0 +1,205 @@
+---
+title: "CompProb"
+format: html
+execute:
+    echo: true
+    code-fold: true
+    toc: true        # optional: table of contents
+    toc-location: left
+---
+
+# 6.1 Computing
+
+## 1.2 The following line of code came from the roulette deliverable.
+
+bad_luck = max(\[len(list(values)) for key, values in groupby(ledger\["outcome"\])
+
+### 1.2a Please explain what the code does.
+
+The code creates the variable bad_luck. ledger\["outcome"\] = selects the outcome column from the ledger. len(list(values)) = Converts the values into a list and counts how many items are in this group. max() = finds the longest streak of consecutive identical outcomes. So bad luck is the length of the longest consecutive streak of the same outcome
+
+### 1.2b If ledger\["outcome"\] = \[0,1,1,0,0,0,1,1,1,1,0,0,1,0,1,1\] what would be the value of bad luck?
+
+1
+
+### 1.3 This line of code generated the following error. What is the mistake in the code, and how is it fixed
+
+> > > np.random.binomial(10,.2) NameError: name 'np' is not defined Cell In\[1\], line 1 ----\> 1 np.random.binomial(10,.2)
+
+The mistake is that numpy was not imported as np.
+
+### 1.4 The following is a schematic of a project folder, with subfolders and files.
+
+``` text
+/c/
+├── memes
+└── project
+    ├── code
+    │   script.qmd
+    ├── data
+    │   survey-responses.csv
+    └── docs
+```
+
+### Supposing the code subfolder is the designated working directory, write the command to be included in the script.qmd file which will read the survey-responses.csv data, avoiding absolute file paths?
+
+working directory is CODE (because that's where script.qmd is) the file we want is in data/survey-responses.csv --\>data is NEXT to code not inside
+
+How we get there from CODE ".." = go up one folder/level so from code to project once in project we go into DATA folder then specify the file ../data/survey-responses.csv
+
+survey_data = pd.read.csv("../data/survey-responses.csv")
+
+### 1.5 What is the absolute path for script.qmd
+
+The absolute path is the full path from the root of the computer to the file
+
+C:/project/code/script.qmd -stars from the root of the drive (c:/), include every folder down to the file
+
+# 6.2 Probability
+
+### 2.1 What is probability? (Describe 3 different ways the word is used.)
+
+Probability is the measure of how likely an event is to occur. 1. As a ratio of favorable outcomes to possible outcomes 2. Estimated from actual experiments or observations 3. Based on personal belief, judgement, or experience ...
+
+### 2.2 Review the examples of uncertainty from your own life that you submitted in homework.
+
+### 2.3 Consider the following table about operating system and computer type. Please complete the table, calculating all joint, conditional, and marginal probabilities.
+
+|               | Mac    | Windows | Margin |
+|---------------|--------|---------|--------|
+| Laptop —Cell  | 0.55   | 0.25    | 0.8    |
+| Row           | 0.6875 | 0.3125  |        |
+| Col           | 0.9167 | 0.625   |        |
+| Desktop— Cell | 0.05   | 0.15    | 0.2    |
+| Row           | 0.25   | 0.75    |        |
+| Col           | 0.0833 | 0.375   |        |
+| Margin        | 0.6    | 0.4     | 1      |
+
+### 2.4 What is the probability that a randomly selected UVA student has a preference for a laptop with Mac operating system?
+
+55%
+
+### 2.5 Among laptop users, what is the probability of randomly selecting a student with a preference for Windows?
+
+0.25/0.4 x 100
+
+### 2.6 If you do not know the operating system preference, what would be the probability that a randomly selected student prefers a desktop?
+
+20%
+
+### 2.7 Among Mac users, what is the probability of randomly selecting a student with a preference for a desktop?
+
+5%
+
+### 2.8 One of the big ideas of this course is that probability is a framework for coherently updating beliefs based on new information and data. Please explain how the solution in 2.7 represents an update of beliefs from the solution in 2.6.
+
+Knowing a student uses a Mac updates our belief about them using a desktop from 20% overall to about 5%, showing how probability adjusts estimates based on new information.
+
+### 2.9 What is the probability that a randomly selected student will prefer a laptop or windows operating system?
+
+0.25/0.8 x 100
+
+### 2.10 Complete the following table with all cell, conditional, and marginal probabilities.
+
+|              | Mac    | Windows | Margin |
+|--------------|--------|---------|--------|
+| Laptop—Cell  | 0.72   | 0.08    | 0.8    |
+| Row          | 0.9    | 0.1     |        |
+| Col          | 0.9474 | 0.3333  |        |
+| Desktop—Cell | 0.04   | 0.16    | 0.2    |
+| Row          | 0.2    | 0.8     |        |
+| Col          | 0.0526 | 0.6667  |        |
+| Margin       | 0.76   | 0.24    | 1      |
+
+### 2.11 In a class of 60 students, what is the probability that 40 students will prefer mac? (Use table from 2.10)
+
+0.72
+
+### 2.12 Create 9 plots of the binomial distribution probability mass function with N=10 and p = .1, .2, …, .9
+
+I don't know how to do this
+
+```text
+import matplotlib.pyplot as plt
+import numpy as np
+
+N = 10
+p = (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+
+for i, p in:
+    plt.show()
+```
+
+### 2.13 Create a visualization of the negative binomial probability mass function with p = .7 and k = 5.
+
+I don't know how to do this
+
+```text
+import matplotlib.pyplot as plt
+import numpy as np
+
+k = 5
+p = 0.7
+
+for i, p in:
+    plt.show()
+```
+
+### 2.14 Suppose electric bikes represent 0.1 of all bikes among UVA students. If a researcher were to stand at the Emmett and Ivy intersection to count bikes, what is the probability that 30 or fewer regular bikes will be observed before the 5 e-bike is observed.
+
+Don't know how to calculate
+
+```text
+r = 5
+p = 0.1
+k_max = 30
+```
+
+### 2.15 Create a visualization of the Poisson probability mass function with y = 2
+
+Don't know how to do this
+
+```text
+import matplotlib.pyplot as plt
+from scipy.stats import poisson
+import numpy as np
+
+plt.show()
+```
+
+### 2.16 Suppose accidents at the Emmett Ivy intersection occur at a rate of 5 per year. If accidents follow the Poisson distribution, what is probability of observing 3 accidents in 9 months.
+
+25%
+
+### 2.17 Consider a class of 15 students, of which 9 are right handed, 4 are left handed, and 2 are ambidextrous. What is the probability that a team of 8 students has no left handed students if teams are created randomly.
+
+12%
+
+# 6.3 Simulation
+
+### 3.1 Write a simulation that estimates the probability from question 2.17. Use only 200 replicates.
+
+```text
+import numpy as np
+
+total_students = ['R']*9 + ['L']*4 + ['A']*2
+team_size = 8
+replicates = 200
+succes_count = 0
+
+for i in range(replicates):
+    team = np.random.choice(total_students, size=team_size, replace=False)
+    if 'L' not in team:
+        succes_cout + 1
+
+estimated_prob = succes_count/ team_size
+
+```
+
+### 3.2 Calculate the simulation error from problem 3.1.
+
+I don't know how to do that
+
+### 3.3 If we repeated the simulation with 2 million replicates, would the simulation error likely get larger or smaller.
+
+The error would get smaller because by more sampling the more accurate the estimated probability becomes.
